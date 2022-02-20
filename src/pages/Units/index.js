@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import DataTable from "../../components/DataTable";
 
-function index(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+function index() {
+  return (
+    <div>
+      <DataTable />
+    </div>
+  );
 }
 
 export default index;

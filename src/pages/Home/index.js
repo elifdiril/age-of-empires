@@ -5,7 +5,7 @@ import "./home.scss";
 function Home() {
   return (
     <div className="homeDiv">
-        <span>Home Page</span>
+      <span className="home-span">Home Page</span>
       <img src={AgeOfEmpires} alt="AgeOfEmpires" />
     </div>
   );
