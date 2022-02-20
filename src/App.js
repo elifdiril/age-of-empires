@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
 import Home from "./pages/Home/index";
+import UnitDetail from "./pages/UnitDetail";
 import Units from "./pages/Units/index";
 
 function App() {
@@ -19,7 +20,18 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/unit/:id">jhf</Route>
+          <Route
+            path="/unit/:id"
+            element={
+              <div>
+                <link
+                  rel="stylesheet"
+                  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                />
+                <UnitDetail />
+              </div>
+            }
+          />
           <Route
             path="/units"
             element={
@@ -31,8 +43,8 @@ function App() {
                 <Units />
               </div>
             }
-          ></Route>
-          <Route path="/" element={<Home />}></Route>
+          />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>

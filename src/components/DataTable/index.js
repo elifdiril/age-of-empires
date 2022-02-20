@@ -1,11 +1,12 @@
 import BootstrapTable from "react-bootstrap-table-next";
 import data from "../../assets/age-of-empires-units.json";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import paginationFactory from "react-bootstrap-table2-paginator";
 //import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function index() {
-    //const { units, loadingUnits } = useSelector((state) => state.UnitReducer);
+  //const { units, loadingUnits } = useSelector((state) => state.UnitReducer);
+  const navigate = useNavigate();
 
   const columns = [
     {
@@ -25,11 +26,11 @@ function index() {
       text: "costs",
     },*/
   ];
-  
 
   const rowEvents = {
     onClick: (_, row) => {
       console.log(row.id);
+      navigate("/unit/" + row.id, {id: row.id});
     },
   };
 
