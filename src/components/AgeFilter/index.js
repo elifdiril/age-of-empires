@@ -6,16 +6,16 @@ function index({ handleFilter }) {
       <button name="all" onClick={(name) => handleFilter(name)}>
         All
       </button>
-      <button name="dark" onClick={(name) => handleFilter(name)}>
+      <button name="Dark" onClick={(name) => handleFilter(name)}>
         Dark
       </button>
-      <button name="feudal" onClick={(name) => handleFilter(name)}>
+      <button name="Feudal" onClick={(name) => handleFilter(name)}>
         Feudal
       </button>
-      <button name="castle" onClick={(name) => handleFilter(name)}>
+      <button name="Castle" onClick={(name) => handleFilter(name)}>
         Castle
       </button>
-      <button name="imperial" onClick={(name) => handleFilter(name)}>
+      <button name="Imperial" onClick={(name) => handleFilter(name)}>
         Imperial
       </button>
     </div>

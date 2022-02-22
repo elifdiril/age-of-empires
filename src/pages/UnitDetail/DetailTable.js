@@ -1,8 +1,9 @@
 import BootstrapTable from "react-bootstrap-table-next";
-import PropTypes from "prop-types";
 import "./table.scss";
+import { useSelector } from "react-redux";
 
-function DetailTable({ unitDetail }) {
+function DetailTable() {
+  const { unit } = useSelector((state) => state.UnitReducer);
   const columns = [
     {
       dataField: "id",
@@ -56,13 +57,9 @@ function DetailTable({ unitDetail }) {
 
   return (
     <div>
-      <BootstrapTable keyField="id" data={unitDetail} columns={columns} />
+      <BootstrapTable keyField="id" data={unit} columns={columns} />
     </div>
   );
 }
 
 export default DetailTable;
-
-DetailTable.propTypes = {
-  unitDetail: PropTypes.array,
-};

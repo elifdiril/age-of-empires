@@ -1,13 +1,16 @@
 import BootstrapTable from "react-bootstrap-table-next";
-import data from "../../assets/age-of-empires-units.json";
 import paginationFactory from "react-bootstrap-table2-paginator";
-//import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getUnitDetailsSuccess } from "../../store/units/actions";
 
 function index() {
-  //const { units, loadingUnits } = useSelector((state) => state.UnitReducer);
+  const { filteredUnits, loadingUnits } = useSelector(
+    (state) => state.UnitReducer
+  );
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
   const columns = [
     {
       dataField: "id",
@@ -21,29 +24,42 @@ function index() {
       dataField: "age",
       text: "Age",
     },
-    /*{
-      dataField: "cost",
-      text: "costs",
-    },*/
+    {
+      dataField: "cost.Wood",
+      text: "Wood",
+    },
+    {
+      dataField: "cost.Food",
+      text: "Food",
+    },
+    {
+      dataField: "cost.Gold",
+      text: "Gold",
+    },
   ];
 
   const rowEvents = {
     onClick: (_, row) => {
-      console.log(row.id);
-      navigate("/unit/" + row.id, {id: row.id});
+      const { id } = row;
+      navigate("/unit/" + id, { id: id });
+      dispatch(getUnitDetailsSuccess(id));
     },
   };
 
   return (
     <div>
-      <BootstrapTable
-        keyField="id"
-        data={data.units}
-        columns={columns}
-        hover
-        pagination={paginationFactory()}
-        rowEvents={rowEvents}
-      />
+      {loadingUnits ? (
+        "Loading..."
+      ) : (
+        <BootstrapTable
+          keyField="id"
+          data={filteredUnits}
+          columns={columns}
+          hover
+          pagination={paginationFactory()}
+          rowEvents={rowEvents}
+        />
+      )}
     </div>
   );
 }

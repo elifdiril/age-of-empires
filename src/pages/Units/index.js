@@ -1,29 +1,23 @@
 import DataTable from "../../components/DataTable";
 import AgeFilter from "../../components/AgeFilter";
 import Range from "../../components/Range/index";
-import { useState } from "react";
-//import { useDispatch } from "react-redux";
-//import { getUnits } from "../../store/units/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { filterByAge } from "../../store/units/actions";
 
 function index() {
-  //let dispatch = useDispatch();
-  const [val, setVal] = useState("");
-  const [range, setRange] = useState([0, 0]);
-
-  const onSliderChange = (range) => {
-    setRange(range);
-  };
+  const dispatch = useDispatch();
+  const { filters } = useSelector((state) => state.UnitReducer);
 
   const handleFilter = (e) => {
-    setVal(e.target.name);
+    dispatch(filterByAge(e.target.name, filters));
   };
 
   return (
     <div>
-      <AgeFilter handleFilter={handleFilter} /> {val}
+      <AgeFilter handleFilter={handleFilter} />
       <br />
       <span>Costs</span>
-      <Range onSliderChange={onSliderChange} range={range} />
+      <Range />
       <DataTable />
     </div>
   );
