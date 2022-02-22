@@ -7,7 +7,7 @@ import Units from "./pages/Units/index";
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app">
         <nav>
           <ul className="app-ul">
             <li className="app-li">
