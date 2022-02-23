@@ -32,5 +32,4 @@ const filterHelper = (filters, initialUnits) => {
 
   return filteredUnits;
 };
-
 export default filterHelper;

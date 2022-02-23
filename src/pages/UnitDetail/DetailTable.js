@@ -1,4 +1,5 @@
 import BootstrapTable from "react-bootstrap-table-next";
+import PropTypes from "prop-types";
 import "./table.scss";
 import { useSelector } from "react-redux";
 
@@ -63,3 +64,7 @@ function DetailTable() {
 }
 
 export default DetailTable;
+
+DetailTable.propTypes = {
+  unitDetail: PropTypes.array,
+};

@@ -34,7 +34,9 @@ function index() {
   let _data = [...data];
   const [costs, setCosts] = useState({});
 
-  const { filters } = useSelector((state) => state.UnitReducer);
+  const { filters } = useSelector(
+    (state) => state.UnitReducer
+  );
 
   useEffect(() => {
     _data[0].range = filters.woodFilter ? filters.woodFilter : [0, 0];

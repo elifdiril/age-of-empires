@@ -1,9 +1,10 @@
 import DetailTable from "./DetailTable";
 
 function UnitDetail() {
+
   return (
     <div>
-      <DetailTable />
+      <DetailTable/>
     </div>
   );
 }
