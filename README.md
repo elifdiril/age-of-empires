@@ -30,3 +30,5 @@ For checking the test coverage:
 ```bash
 npm test -- --coverage
 ```
+
+![Coverage](public/test-coverage.png)
