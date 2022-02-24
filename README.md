@@ -4,6 +4,8 @@
 
  <br/>
 
+## [Live on Netlify](https://age-of-empires-units.netlify.app/)
+
 ```bash
 git clone https://github.com/elifdiril/age-of-empires.git
 ```
@@ -23,7 +25,6 @@ npm start
 ```
 
 to start the client side.
-
 
 For checking the test coverage:
 
