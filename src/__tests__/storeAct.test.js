@@ -1,32 +1,21 @@
 import configureStore from "redux-mock-store";
-import {
-  getUnits,
-  getUnitsSuccess,
-  getUnitsFail,
-  getUnitDetails,
-  getUnitDetailsSuccess,
-  getUnitDetailsFail,
-  filterByAge,
-  filterByFood,
-  filterByGold,
-  filterByWood,
-} from "../store/units/actions";
+import * as _actions from "../store/units/actions";
 const middlewares = [];
 const mockStore = configureStore(middlewares);
 
 describe("getUsers action creator", () => {
   it("get actions correctly", async () => {
     let store = mockStore({});
-    store.dispatch(getUnits());
-    store.dispatch(getUnitsSuccess());
-    store.dispatch(getUnitsFail());
-    store.dispatch(getUnitDetails());
-    store.dispatch(getUnitDetailsSuccess());
-    store.dispatch(getUnitDetailsFail());
-    store.dispatch(filterByAge());
-    store.dispatch(filterByFood());
-    store.dispatch(filterByGold());
-    store.dispatch(filterByWood());
+    store.dispatch(_actions.getUnits());
+    store.dispatch(_actions.getUnitsSuccess());
+    store.dispatch(_actions.getUnitsFail());
+    store.dispatch(_actions.getUnitDetails());
+    store.dispatch(_actions.getUnitDetailsSuccess());
+    store.dispatch(_actions.getUnitDetailsFail());
+    store.dispatch(_actions.filterByAge());
+    store.dispatch(_actions.filterByFood());
+    store.dispatch(_actions.filterByGold());
+    store.dispatch(_actions.filterByWood());
 
     const actions = store.getActions();
 

@@ -1,15 +1,4 @@
-import {
-  GET_UNITS,
-  GET_UNITS_SUCCESS,
-  GET_UNITS_FAIL,
-  GET_UNIT_DETAILS,
-  GET_UNIT_DETAILS_SUCCESS,
-  GET_UNIT_DETAILS_FAIL,
-  FILTER_BY_AGE,
-  FILTER_BY_FOOD,
-  FILTER_BY_GOLD,
-  FILTER_BY_WOOD,
-} from "./actionTypes";
+import * as actions from "./actionTypes";
 
 import data from "../../assets/age-of-empires-units.json";
 import filterHelper from "../../helpers/filterHelper";
@@ -36,13 +25,13 @@ const initialState = {
 
 const UnitReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_UNITS:
+    case actions.GET_UNITS:
       state = { ...state, loadingUnits: true };
       break;
-    case GET_UNITS_SUCCESS:
+    case actions.GET_UNITS_SUCCESS:
       state = { ...state, filteredUnits: action.payload, loadingUnits: false };
       break;
-    case GET_UNITS_FAIL:
+    case actions.GET_UNITS_FAIL:
       state = {
         ...state,
         error: {
@@ -51,17 +40,17 @@ const UnitReducer = (state = initialState, action) => {
         loadingUnits: false,
       };
       break;
-    case GET_UNIT_DETAILS:
+    case actions.GET_UNIT_DETAILS:
       state = { ...state, loadingUnitDetails: true };
       break;
-    case GET_UNIT_DETAILS_SUCCESS:
+    case actions.GET_UNIT_DETAILS_SUCCESS:
       state = {
         ...state,
         unit: state.filteredUnits.filter((unit) => unit.id === action.payload),
         loadingUnitDetails: false,
       };
       break;
-    case GET_UNIT_DETAILS_FAIL:
+    case actions.GET_UNIT_DETAILS_FAIL:
       state = {
         ...state,
         error: {
@@ -71,7 +60,7 @@ const UnitReducer = (state = initialState, action) => {
       };
       break;
 
-    case FILTER_BY_AGE:
+    case actions.FILTER_BY_AGE:
       state = {
         ...state,
         filters: { ...action.filters, ageFilter: action.payload },
@@ -82,7 +71,7 @@ const UnitReducer = (state = initialState, action) => {
       };
       break;
 
-    case FILTER_BY_FOOD:
+    case actions.FILTER_BY_FOOD:
       state = {
         ...state,
         filters: { ...action.filters, foodFilter: action.payload },
@@ -93,7 +82,7 @@ const UnitReducer = (state = initialState, action) => {
       };
       break;
 
-    case FILTER_BY_GOLD:
+    case actions.FILTER_BY_GOLD:
       state = {
         ...state,
         filters: { ...action.filters, goldFilter: action.payload },
@@ -104,7 +93,7 @@ const UnitReducer = (state = initialState, action) => {
       };
       break;
 
-    case FILTER_BY_WOOD:
+    case actions.FILTER_BY_WOOD:
       state = {
         ...state,
         filters: { ...action.filters, woodFilter: action.payload },
